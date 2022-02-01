@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:14.1
+    restart: always
+    environment:
+      POSTGRES_DB: 'app'
+      POSTGRES_USER: 'app'
+      POSTGRES_PASSWORD: 'app'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  backend:
+    build: ../back-end
+    restart: always
+    environment:
+      DATABASE_URL: 'postgresql://app:app@database:5432/app'
+    ports:
+      - '8000:8000'
+  frontend:
+    build: ../front-end
+    ports:
+      - '3000:80'
