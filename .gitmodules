@@ -1,6 +1,8 @@
 [submodule "back-end"]
 	path = back-end
 	url = https://github.com/PZSP2-21Z-17/back-end.git
+	branch = master
 [submodule "front-end"]
 	path = front-end
 	url = https://github.com/PZSP2-21Z-17/front-end.git
+	branch = master
